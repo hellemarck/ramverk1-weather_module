@@ -2,7 +2,7 @@
 
 namespace Anax\Models;
 
-class WeatherApi extends GeoApi
+class WeatherApi
 {
     /**
      * model class for a 7 day weather forecast or 5 days history for a position
@@ -21,27 +21,28 @@ class WeatherApi extends GeoApi
         $this->location = [];
     }
 
-    // check if input is coordinates or ip
-    public function checkArgument($search, $type)
+    public function findGeoLocation($ipAdress)
     {
-        if (strpos($search, ",") == true) {
-            $split = explode(",", $search);
-            if (!ctype_alpha($split[0]) && !ctype_alpha($split[1])) {
-                $this->coordinates = [$split[0], $split[1]];
-                return $weather = ($type == "coming") ? ($this->comingWeather($split[0], $split[1])) : $this->pastWeather($split[0], $split[1]);
-            } else {
-                return "Felaktig söksträng, försök igen.";
-            }
-        } else {
-            // if ip-address: find coordinates in GeoApi model
-            $res = $this->findGeoLocation($search);
-            if ($res["longitude"] !== "-") {
-                $this->coordinates = [$res["latitude"], $res["longitude"]];
-                return $weather = ($type == "coming") ? ($this->comingWeather($res["latitude"], $res["longitude"])) : $this->pastWeather($res["latitude"], $res["longitude"]);
-            } else {
-                return "Felaktig söksträng, försök igen.";
-            }
-        }
+        global $di;
+
+        // get the secret api key
+        $config = $di->get("configuration")->load("api_key_ip.php");
+        $apiKey = $config["config"]["ipStack"]["apiKey"];
+
+        // make curl api call with ip address and api key
+        $ch1 = curl_init('http://api.ipstack.com/'.$ipAdress.'?access_key='.$apiKey.'');
+        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+        $json = curl_exec($ch1);
+        curl_close($ch1);
+
+        $result = json_decode($json, true);
+
+        $data = [
+            "longitude" => $result['longitude'] ?? "-",
+            "latitude" => $result['latitude'] ?? "-"
+        ];
+
+        return $data;
     }
 
     // get city and country of location - using nominatim api
@@ -92,6 +93,12 @@ class WeatherApi extends GeoApi
             $days[] = strtotime("$i days");
         }
         return $days;
+    }
+
+    // set coordinates from controller, to be able to get location info in this class
+    public function setCoordinates($lat, $long)
+    {
+        $this->coordinates = [$lat, $long];
     }
 
     // give controller access to current coordinates
