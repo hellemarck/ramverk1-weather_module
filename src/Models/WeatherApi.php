@@ -21,30 +21,6 @@ class WeatherApi
         $this->location = [];
     }
 
-    public function findGeoLocation($ipAdress)
-    {
-        global $di;
-
-        // get the secret api key
-        $config = $di->get("configuration")->load("api_key_ip.php");
-        $apiKey = $config["config"]["ipStack"]["apiKey"];
-
-        // make curl api call with ip address and api key
-        $ch1 = curl_init('http://api.ipstack.com/'.$ipAdress.'?access_key='.$apiKey.'');
-        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
-        $json = curl_exec($ch1);
-        curl_close($ch1);
-
-        $result = json_decode($json, true);
-
-        $data = [
-            "longitude" => $result['longitude'] ?? "-",
-            "latitude" => $result['latitude'] ?? "-"
-        ];
-
-        return $data;
-    }
-
     // get city and country of location - using nominatim api
     public function getLocation()
     {
