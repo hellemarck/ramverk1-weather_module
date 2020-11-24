@@ -1,5 +1,5 @@
 {
-    "name" : "hellemarck/weather",
+    "name" : "hellemarck/ramverk1-weather_module",
     "description": "A weather module for ramverk1 course.",
     "license": "MIT",
     "minimum-stability": "beta",
