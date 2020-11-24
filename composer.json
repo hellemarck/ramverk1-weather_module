@@ -1,5 +1,5 @@
 {
-    "name" : "anax/mh-weather",
+    "name" : "hellemarck/weather",
     "description": "A weather module for ramverk1 course.",
     "license": "MIT",
     "minimum-stability": "beta",
