@@ -9,7 +9,7 @@ return [
         "weatherapi" => [
             "shared" => true,
             "callback" => function () {
-                $config = $this->get("configuration")->load("api_key_weather.php");
+                $config = $this->get("configuration")->load("api_keys.php");
                 $apiKey = $config["config"]["openWeather"]["apiKey"];
 
                 $wApi = 'https://api.openweathermap.org/';

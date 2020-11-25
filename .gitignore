@@ -3,5 +3,4 @@
 /vendor
 memory::
 composer.lock
-
-api_keys.php
+.DS_Store
