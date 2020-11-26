@@ -1,27 +1,30 @@
-## Weather module for Anax (used in the ramverk1 repo)
+## Weather module for Anax framework
 
-WORK IN PROGRESS....
+This module is developed for usage in the PHP framework Anax.
 
 ### Installation
 
 `composer require hellemarck/weather`
+`make install`
+`make install test`
 
 ### Copy configuration
 
-rsync -av vendor/hellemarck/weather/config config/
-rsync -av vendor/hellemarck/weather/src src/
-rsync -av vendor/hellemarck/weather/test test/
-rsync -av vendor/hellemarck/weather/view view/
+rsync -av vendor/hellemarck/weather/config/ config/
+rsync -av vendor/hellemarck/weather/src/ src/
+rsync -av vendor/hellemarck/weather/test/ test/
+rsync -av vendor/hellemarck/weather/view/ view/
 
 ### Add your personal API keys
 
-Copy the file `config/api_key_sample.php` and add your personal API key.
-Further instructions are found in that file.
+Modify the file `config/api_keys_sample.php` to hold your personal API keys, and change its name to `api_keys.php`.
 
 ### Structure
 
-The weather service will be available at `/weather`
-and the ip service will be available at `/ip`
+The weather server will be available at `/weather`
+and the ip server will be available at `/ip`
 
+### Run tests
 
-<!-- Version to use: 1.0.3 -->
+`make test`
+Remember to fix the file api_keys.php first

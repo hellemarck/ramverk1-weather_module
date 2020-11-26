@@ -21,6 +21,7 @@ class IpController implements ContainerInjectableInterface
      */
     public function indexAction()
     {
+        // var_dump($this->di);
         $page = $this->di->get("page");
         $title = "Validera IP-adress";
 

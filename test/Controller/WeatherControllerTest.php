@@ -21,7 +21,7 @@ class WeatherControllerTest extends TestCase
         // di setup
         $this->di = new DIFactoryConfig();
         $this->di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-        $this->di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
+        $this->di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
 
         $this->di = $di;
 
