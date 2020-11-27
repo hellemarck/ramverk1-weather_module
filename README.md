@@ -10,7 +10,7 @@ This module is developed for usage in the PHP framework Anax.
 
 `make install test`
 
-### Copy configuration
+### Copy configuration and module files
 
 `rsync -av vendor/hellemarck/weather/config/ config/`
 
