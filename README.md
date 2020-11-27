@@ -5,7 +5,9 @@ This module is developed for usage in the PHP framework Anax.
 ### Installation
 
 `composer require hellemarck/weather`
+
 `make install`
+
 `make install test`
 
 ### Copy configuration
