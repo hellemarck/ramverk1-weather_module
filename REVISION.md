@@ -14,3 +14,9 @@ Added ip functionality to the module.
 
 ### v1.1.0 (2020-11-26)
 Tests added with new functionality concerning DI configuration
+
+### v1.1.1 (2020-11-27)
+Cache folders and config added for test purposes.
+
+### v1.1.2 (2020-11-27)
+Just trying out the auto-update at packagist.
