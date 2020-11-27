@@ -12,10 +12,13 @@ This module is developed for usage in the PHP framework Anax.
 
 ### Copy configuration
 
-rsync -av vendor/hellemarck/weather/config/ config/
-rsync -av vendor/hellemarck/weather/src/ src/
-rsync -av vendor/hellemarck/weather/test/ test/
-rsync -av vendor/hellemarck/weather/view/ view/
+`rsync -av vendor/hellemarck/weather/config/ config/`
+
+`rsync -av vendor/hellemarck/weather/src/ src/`
+
+`rsync -av vendor/hellemarck/weather/test/ test/`
+
+`rsync -av vendor/hellemarck/weather/view/ view/`
 
 ### Add your personal API keys
 
@@ -24,9 +27,11 @@ Modify the file `config/api_keys_sample.php` to hold your personal API keys, and
 ### Structure
 
 The weather server will be available at `/weather`
+
 and the ip server will be available at `/ip`
 
 ### Run tests
 
 `make test`
+
 Remember to fix the file api_keys.php first
