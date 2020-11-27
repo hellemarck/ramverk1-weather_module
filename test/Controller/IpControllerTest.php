@@ -11,16 +11,18 @@ use PHPUnit\Framework\TestCase;
 class IpControllerTest extends TestCase
 {
     // init di container and test variable
-    // protected $di;
-    // public $controllerTest;
+    public $di;
+    public $controllerTest;
 
     public function setUp()
     {
         global $di;
 
+        // funkar
         $di = new DIFactoryConfig();
         $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
         $di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
+        $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
 
         $this->controllerTest = new IpController();
         $this->controllerTest->setDi($di);
