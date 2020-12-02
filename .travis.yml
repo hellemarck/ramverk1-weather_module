@@ -1,0 +1,17 @@
+language: php
+
+php:
+    - "7.4"
+    - "7.3"
+    - "7.2"
+
+sudo: false
+
+git:
+    submodules: false
+
+before_script:
+    - make install
+
+script:
+    - make test

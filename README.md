@@ -10,15 +10,15 @@ This module is developed for usage in the PHP framework Anax.
 
 `make install test`
 
-### Copy configuration
+### Copy configuration and module files
 
-rsync -av vendor/hellemarck/weather/config/ config/
+`rsync -av vendor/hellemarck/weather/config/ config/`
 
-rsync -av vendor/hellemarck/weather/src/ src/
+`rsync -av vendor/hellemarck/weather/src/ src/`
 
-rsync -av vendor/hellemarck/weather/test/ test/
+`rsync -av vendor/hellemarck/weather/test/ test/`
 
-rsync -av vendor/hellemarck/weather/view/ view/
+`rsync -av vendor/hellemarck/weather/view/ view/`
 
 ### Add your personal API keys
 
