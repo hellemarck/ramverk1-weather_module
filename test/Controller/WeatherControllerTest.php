@@ -67,7 +67,7 @@ class WeatherControllerTest extends TestCase
         $_GET["type"] = "coming";
         $res = $this->weatherTest->searchAction();
         $body = $res->getBody();
-        $this->assertContains('Staffanstorps kommun', $body);
+        $this->assertContains('Bara', $body);
         $this->assertIsObject($res);
     }
 

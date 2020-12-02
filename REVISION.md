@@ -20,3 +20,6 @@ Cache folders and config added for test purposes.
 
 ### v1.1.2 (2020-11-27)
 Just trying out the auto-update at packagist.
+
+### v1.1.3 (2020-12-02)
+Added .travis.yml
