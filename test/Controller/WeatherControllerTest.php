@@ -26,7 +26,6 @@ class WeatherControllerTest extends TestCase
         $this->di = $di;
 
         // init the test class
-        // mos put this part in every test case
         $this->weatherTest = new WeatherControllerMock();
         $this->weatherTest->setDI($this->di);
     }
@@ -45,7 +44,7 @@ class WeatherControllerTest extends TestCase
      */
     public function testSearchWrongAction()
     {
-        // $_GET["location"] = "hej,hej";
+        $_GET["location"] = "hej,hej";
         $_GET["type"] = "coming";
         $res = $this->weatherTest->searchAction();
         $body = $res->getBody();
@@ -54,26 +53,26 @@ class WeatherControllerTest extends TestCase
 
     public function testSearchWrongIpAction()
     {
-        // $_GET["location"] = "1.2.3";
+        $_GET["location"] = "1.2.3";
         $_GET["type"] = "coming";
         $res = $this->weatherTest->searchAction();
         $body = $res->getBody();
-        $this->assertContains('Malmö', $body);
+        $this->assertContains('Resultat', $body);
     }
 
     public function testSearchComingAction()
     {
-        // $_GET["location"] = "55.6,13.2";
+        $_GET["location"] = "55.6,13.2";
         $_GET["type"] = "coming";
         $res = $this->weatherTest->searchAction();
         $body = $res->getBody();
-        $this->assertContains('Malmö', $body);
+        $this->assertContains('Bara', $body);
         $this->assertIsObject($res);
     }
 
     public function testSearchPastAction()
     {
-        // $_GET["location"] = "8.8.8.8";
+        $_GET["location"] = "8.8.8.8";
         $_GET["type"] = "past";
         $res = $this->weatherTest->searchAction();
         $this->assertIsObject($res);
@@ -82,7 +81,7 @@ class WeatherControllerTest extends TestCase
 
     public function testSearchWrongCoordAction()
     {
-        // $_GET["location"] = "444,44";
+        $_GET["location"] = "444,44";
         $_GET["type"] = "past";
         $res = $this->weatherTest->searchAction();
         $this->assertIsObject($res);

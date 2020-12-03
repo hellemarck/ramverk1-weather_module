@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/hellemarck/ramverk1-weather_module.svg?branch=main)](https://travis-ci.com/hellemarck/ramverk1-weather_module)
+
 ## Weather module for Anax framework
 
 This module is developed for usage in the PHP framework Anax.

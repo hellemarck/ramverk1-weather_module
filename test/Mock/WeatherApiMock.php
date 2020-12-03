@@ -2,50 +2,15 @@
 
 namespace Anax\Models;
 
-class WeatherApiMock
+class WeatherApiMock extends WeatherApi
 {
     /**
-     * model class for a 7 day weather forecast or 5 days history for a position
-     * mock class for test purpose
+     * mock class for a 7 day weather forecast or 5 days history
+     * returning example of api respons from openweather
+     * TEST PURPOSE
      */
 
-    // get city and country of location - using nominatim api
-    public function getLocation()
-    {
-        if (!empty($this->coordinates)) {
-            $this->location = [
-                    "Malmö" ?? "odefinierad",
-                    "Sverige" ?? " odefinierad"
-                ];
-
-            return $this->location;
-        }
-    }
-
-    // check to see if input coordinates are valid, else return err
-    public function validCoordinates($latitude, $longitude)
-    {
-        if ($latitude < 90 && $latitude > -90 && $longitude < 180 && $longitude > -180) {
-            return true;
-        } else {
-            $this->weather = "Ogiltiga koordinater, försök igen.";
-            $this->coordinates = [];
-        }
-    }
-
-    // set coordinates from controller, to be able to get location info in this class
-    public function setCoordinates($lat, $long)
-    {
-        $this->coordinates = [$lat, $long];
-    }
-
-    // give controller access to current coordinates
-    public function getCoordinates()
-    {
-        return $this->coordinates;
-    }
-
-    // fetch for 5 days past weather
+    // 5 day weather history
     public function pastWeather($latitude, $longitude)
     {
         if ($this->validCoordinates($latitude, $longitude)) {

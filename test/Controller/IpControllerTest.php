@@ -27,6 +27,7 @@ class IpControllerTest extends TestCase
         $this->controllerTest = new IpControllerMock();
         // $this->controllerTest = new IpController();
         $this->controllerTest->setDi($di);
+        $this->controllerTest->init();
     }
 
     /**

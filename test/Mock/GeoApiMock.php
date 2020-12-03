@@ -2,15 +2,13 @@
 
 namespace Anax\Models;
 
-class GeoApiMock extends IpValidator
+class GeoApiMock extends GeoApi
 {
     /**
      * mocking for tests - returning info based in ip address
      */
-    public function findGeoLocation()
+    public function findGeoLocation($ipAdress = "")
     {
-        // global $di;
-
         $data = [
             "city" => "Malmö" ?? "-",
             "country_name" => "Sweden" ?? "-",
