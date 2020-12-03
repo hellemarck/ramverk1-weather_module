@@ -28,6 +28,7 @@ class IpToJSONControllerTest extends TestCase
 
         // init the test class
         $this->apiControllerTest = new IpToJSONControllerMock();
+        $this->apiControllerTest->init();
         $this->apiControllerTest->setDI($this->di);
     }
 

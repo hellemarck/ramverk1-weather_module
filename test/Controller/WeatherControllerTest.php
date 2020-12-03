@@ -28,6 +28,7 @@ class WeatherControllerTest extends TestCase
         // init the test class
         $this->weatherTest = new WeatherControllerMock();
         $this->weatherTest->setDI($this->di);
+        $this->weatherTest->init();
     }
 
     /**

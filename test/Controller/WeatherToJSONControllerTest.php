@@ -25,8 +25,8 @@ class WeatherToJSONControllerTest extends TestCase
 
         // init the test class
         $this->test = new WeatherToJSONControllerMock();
-        $this->test->init();
         $this->test->setDI($this->di);
+        $this->test->init();
     }
 
     /**

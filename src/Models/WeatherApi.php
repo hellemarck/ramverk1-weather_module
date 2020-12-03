@@ -10,7 +10,7 @@ class WeatherApi
      * service container in $di
      */
 
-    public function __construct(\Anax\DI\DIFactoryConfig $di, $apiKey, $wApi, $lApi)
+    public function __construct(\Anax\DI\DIFactoryConfig $di = null, $apiKey = null, $wApi = null, $lApi = null)
     {
         $this->di = $di;
         $this->apiKey = $apiKey;
