@@ -55,7 +55,6 @@ class IpToJSONControllerTest extends TestCase
         // test ip6
         $_GET["ipAdress"] = "::1";
         $res = $this->apiControllerTest->validateIpApiAction();
-        // var_dump($res[0]["domain"]);
         $this->assertIsString($res[0][0]["domain"]);
     }
 }
