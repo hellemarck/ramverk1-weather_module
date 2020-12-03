@@ -27,7 +27,7 @@ class IpToJSONControllerTest extends TestCase
         $this->di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
 
         // init the test class
-        $this->apiControllerTest = new IpToJSONController();
+        $this->apiControllerTest = new IpToJSONControllerMock();
         $this->apiControllerTest->setDI($this->di);
     }
 

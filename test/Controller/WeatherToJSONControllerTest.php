@@ -24,7 +24,7 @@ class WeatherToJSONControllerTest extends TestCase
         $this->di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
 
         // init the test class
-        $this->test = new WeatherToJSONController();
+        $this->test = new WeatherToJSONControllerMock();
         $this->test->setDI($this->di);
     }
 
@@ -43,7 +43,8 @@ class WeatherToJSONControllerTest extends TestCase
         $_GET["location"] = "2.3.4";
         $res = $this->test->searchAction();
         $this->assertIsArray($res);
-        $this->assertEquals($res[0][0]["weather"], "Felaktig söksträng, försök igen.");
+        // var_dump($res[0][0]["weather"][0]["description"]);
+        $this->assertEquals($res[0][0]["weather"][0]["description"], "mulet");
     }
 
     public function test3SearchAction()

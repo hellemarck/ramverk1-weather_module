@@ -7,7 +7,7 @@ class GeoApiMock extends IpValidator
     /**
      * mocking for tests - returning info based in ip address
      */
-    public function findGeoLocation($ipAdress)
+    public function findGeoLocation()
     {
         // global $di;
 

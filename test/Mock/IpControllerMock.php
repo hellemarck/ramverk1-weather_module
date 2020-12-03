@@ -51,7 +51,7 @@ class IpControllerMock implements ContainerInjectableInterface
         $data = [
             "valid" => $ipAndLocation->validateIp($ipAdress)["res"],
             "domain" => $ipAndLocation->validateIp($ipAdress)["domain"] ?? null,
-            "location" => $ipAndLocation->findGeoLocation($ipAdress) ?? null
+            "location" => $ipAndLocation->findGeoLocation() ?? null
         ];
 
         $title = "Resultat";
