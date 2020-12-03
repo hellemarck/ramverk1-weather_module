@@ -24,7 +24,8 @@ class IpControllerTest extends TestCase
         $di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
         $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
 
-        $this->controllerTest = new IpController();
+        $this->controllerTest = new IpControllerMock();
+        // $this->controllerTest = new IpController();
         $this->controllerTest->setDi($di);
     }
 
@@ -37,7 +38,7 @@ class IpControllerTest extends TestCase
         $res = $this->controllerTest->indexAction();
         $this->assertIsObject($res);
 
-        $this->assertInstanceOf(IpController::class, $this->controllerTest);
+        $this->assertInstanceOf(IpControllerMock::class, $this->controllerTest);
     }
 
     /**
