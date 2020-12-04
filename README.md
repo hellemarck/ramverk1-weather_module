@@ -1,5 +1,8 @@
 [![Build Status](https://travis-ci.com/hellemarck/ramverk1-weather_module.svg?branch=main)](https://travis-ci.com/hellemarck/ramverk1-weather_module)
 [![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/hellemarck/ramverk1-weather_module)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/hellemarck/ramverk1-weather_module/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/hellemarck/ramverk1-weather_module/?branch=main)
+[![Code Coverage](https://scrutinizer-ci.com/g/hellemarck/ramverk1-weather_module/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/hellemarck/ramverk1-weather_module/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/hellemarck/ramverk1-weather_module/badges/build.png?b=main)](https://scrutinizer-ci.com/g/hellemarck/ramverk1-weather_module/build-status/main)
 
 ## Weather module for Anax framework
 
