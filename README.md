@@ -24,7 +24,7 @@ This module is developed for usage in the PHP framework Anax.
 
 ### Add your personal API keys
 
-Modify the file `config/api_keys_sample.php` to hold your personal API keys, and change its name to `api_keys.php`.
+Modify the file `config/api_keys.php` to hold your personal API keys.
 
 ### Structure
 
