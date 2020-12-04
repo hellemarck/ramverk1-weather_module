@@ -23,3 +23,6 @@ Just trying out the auto-update at packagist.
 
 ### v1.1.3 (2020-12-02)
 Added .travis.yml
+
+### v1.2.0 (2020-12-04)
+Added mocking and tests to go independent from its API's
