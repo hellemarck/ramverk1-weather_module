@@ -15,3 +15,7 @@ before_script:
 
 script:
     - make test
+
+env:
+    global:
+        - XDEBUG_MODE=coverage
