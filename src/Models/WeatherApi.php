@@ -93,9 +93,6 @@ class WeatherApi
     public function pastWeather($latitude, $longitude)
     {
         if ($this->validCoordinates($latitude, $longitude)) {
-            var_dump("PASTWEATHER ANVÄNDS");
-            // var_dump($this->weather);
-            // var_dump("^^^ väder");
             $pastFive = $this->pastFive();
             $fetch = $this->weatherApi.'data/2.5/onecall/timemachine?lat='.$latitude.'&lon='.$longitude.'&lang=sv&units=metric&dt=';
 
@@ -139,7 +136,6 @@ class WeatherApi
     public function comingWeather($latitude, $longitude)
     {
         if ($this->validCoordinates($latitude, $longitude)) {
-            var_dump("COMINGWEATHER ANVÄNDS");
             $exclude = "current,minutely,hourly,alerts";
 
             $ch1 = curl_init($this->weatherApi.'data/2.5/onecall?lat='.$latitude.'&lon='.$longitude.'&cnt={}&exclude='.$exclude.'&units=metric&lang=sv&appid='.$this->apiKey.'');

@@ -55,14 +55,8 @@ class WeatherControllerTest extends TestCase
     public function testSearchWrongIpAction()
     {
         $_GET["location"] = "1.2.3";
-        // $_GET["type"] = "coming";
-        // var_dump("testsearchwrongipaction");
-        // GEOAPI ANVÄNDS HÄR
-        // $this->weatherTest->coming->setWeather($this->weatherTest->coming);
-        // var_dump($this->weatherTest->coming->weather);
         $res = $this->weatherTest->searchAction();
         $body = $res->getBody();
-        // var_dump($body);
         $this->assertContains('Felaktig söksträng, försök igen.', $body);
     }
     //
@@ -70,30 +64,37 @@ class WeatherControllerTest extends TestCase
     {
         $_GET["location"] = "55.6,13.2";
         $res = $this->weatherTest->searchAction();
-        // $body = $res->getBody();
-        // $this->assertContains('Bara', $body);
+        $body = $res->getBody();
+        $this->assertContains('Bara', $body);
         $this->assertIsObject($res);
     }
-    //
+
     public function testSearchPastAction()
     {
         $_GET["location"] = "8.8.8.8";
-        // $_GET["type"] = "past";
-        // pastw används INTE
-        // var_dump("testsearchpastaction");
-        // $this->weatherTest->coming->setWeather($this->weatherTest->coming);
         $res = $this->weatherTest->searchAction();
         $this->assertIsObject($res);
         $this->assertInstanceOf("Anax\Response\Response", $res);
     }
-    //
+
     public function testSearchWrongCoordAction()
     {
         $_GET["location"] = "444,44";
-        // $_GET["type"] = "past";
-        // var_dump("testsearchWrongCoordAction");
-        // $this->weatherTest->coming->setWeather($this->weatherTest->coming);
         $res = $this->weatherTest->searchAction();
         $this->assertIsObject($res);
+    }
+
+    public function testValidCoordinates()
+    {
+        $res = $this->weatherTest->coming->validCoordinates("55.6", "13.2");
+        $this->assertTrue($res);
+        $res = $this->weatherTest->coming->validCoordinates("900", "900");
+        $this->assertEquals($res, null);
+    }
+
+    public function testPastFive()
+    {
+        $res = $this->weatherTest->coming->pastFive();
+        $this->assertIsArray($res);
     }
 }

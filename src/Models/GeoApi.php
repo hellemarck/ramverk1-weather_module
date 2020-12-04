@@ -12,7 +12,6 @@ class GeoApi extends IpValidator
     public function findGeoLocation($ipAdress)
     {
         global $di;
-        var_dump("GEOAPI ANVÄNDS");
 
         // get the secret api key
         $config = $di->get("configuration")->load("api_keys.php") ?? null;
