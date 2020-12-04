@@ -9,8 +9,8 @@ return [
         "weatherapi" => [
             "shared" => true,
             "callback" => function () {
-                $config = $this->get("configuration")->load("api_keys.php");
-                $apiKey = $config["config"]["openWeather"]["apiKey"];
+                $config = $this->get("configuration")->load("api_keys.php") ?? null;
+                $apiKey = $config["config"]["openWeather"]["apiKey"] ?? null;
 
                 $wApi = 'https://api.openweathermap.org/';
                 $lApi = 'https://nominatim.openstreetmap.org/';
