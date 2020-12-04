@@ -59,7 +59,7 @@ class WeatherController implements ContainerInjectableInterface
             $res = $geoObj->findGeoLocation($search);
             if ($res["longitude"] !== "-") {
                 $weatherObj->setCoordinates($res["latitude"], $res["longitude"]);
-                $weather = ($type == "coming" && test == false) ? ($weatherObj->comingWeather($res["latitude"], $res["longitude"])) : $weatherObj->pastWeather($res["latitude"], $res["longitude"]);
+                $weather = ($type == "coming") ? ($weatherObj->comingWeather($res["latitude"], $res["longitude"])) : $weatherObj->pastWeather($res["latitude"], $res["longitude"]);
             } else {
                 $weather = "Felaktig söksträng, försök igen.";
             }

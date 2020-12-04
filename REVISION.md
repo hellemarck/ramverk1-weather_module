@@ -26,3 +26,6 @@ Added .travis.yml
 
 ### v1.2.0 (2020-12-04)
 Added mocking and tests to go independent from its API's
+
+### v1.2.1 (2020-12-04)
+Small bugfixes to function with Anax.

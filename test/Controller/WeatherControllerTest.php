@@ -65,7 +65,7 @@ class WeatherControllerTest extends TestCase
         $_GET["location"] = "55.6,13.2";
         $res = $this->weatherTest->searchAction();
         $body = $res->getBody();
-        $this->assertContains('Bara', $body);
+        $this->assertContains('lätt snöfall', $body);
         $this->assertIsObject($res);
     }
 
