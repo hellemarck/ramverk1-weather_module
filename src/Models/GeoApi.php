@@ -12,10 +12,11 @@ class GeoApi extends IpValidator
     public function findGeoLocation($ipAdress)
     {
         global $di;
+        var_dump("GEOAPI ANVÄNDS");
 
         // get the secret api key
-        $config = $di->get("configuration")->load("api_keys.php");
-        $apiKey = $config["config"]["ipStack"]["apiKey"];
+        $config = $di->get("configuration")->load("api_keys.php") ?? null;
+        $apiKey = $config["config"]["ipStack"]["apiKey"] ?? null;
 
         // make curl api call with ip address and api key
         $ch1 = curl_init('http://api.ipstack.com/'.$ipAdress.'?access_key='.$apiKey.'');

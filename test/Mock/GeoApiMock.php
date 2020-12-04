@@ -9,13 +9,13 @@ class GeoApiMock extends GeoApi
      */
     public function findGeoLocation($ipAdress = "")
     {
-        $data = [
+        $this->data = [
             "city" => "Malmö" ?? "-",
             "country_name" => "Sweden" ?? "-",
             "longitude" => "12.983590126038" ?? "-",
             "latitude" => "55.594860076904" ?? "-"
         ];
 
-        return $data;
+        return $this->data;
     }
 }

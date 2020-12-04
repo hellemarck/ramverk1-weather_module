@@ -17,6 +17,31 @@ class IpControllerMock extends IpController
     // init object of mock class
     public function init()
     {
-        $this->ipAndLocation = new GeoApiMock();
+        $this->geo = new GeoApiMock();
+    }
+
+    public function validateIpAction()
+    {
+        $page = $this->di->get("page");
+        $ipAdress = $_GET["ipAdress"];
+
+        /**
+         * Create an instance of class GeoApi which inherits from IpValidator
+         * Validates IP address in parent class and finds location in child class
+         */
+        $ipAndLocation = $this->di->get("geoapi");
+
+        $data = [
+            "valid" => $ipAndLocation->validateIp($ipAdress)["res"],
+            "domain" => $ipAndLocation->validateIp($ipAdress)["domain"] ?? null,
+            "location" => $this->geo->findGeoLocation() ?? null
+        ];
+
+        $title = "Resultat";
+        $page->add("ip/result", $data);
+
+        return $page->render([
+            "title" => $title,
+        ]);
     }
 }

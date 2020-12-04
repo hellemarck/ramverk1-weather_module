@@ -15,6 +15,24 @@ class IpToJSONControllerMock extends IpToJSONController
     // init object of mock class
     public function init()
     {
-        $this->ipAndLocation = new GeoApiMock();
+        $this->geo = new GeoApiMock();
+    }
+
+    public function validateIpApiAction()
+    {
+        $ipAdress = $_GET["ipAdress"];
+
+        // create instance of class GeoApi which inherits from IpValidator
+        $ipAndLocation = $this->di->get("geoapi");
+
+        $data = [
+            "valid" => $ipAndLocation->validateIp($ipAdress)["res"],
+            "domain" => $ipAndLocation->validateIp($ipAdress)["domain"] ?? null,
+            "location" => $this->geo->findGeoLocation() ?? null
+        ];
+
+        // rendering the result as formatted json
+        json_encode($data, true);
+        return [[ $data ]];
     }
 }
